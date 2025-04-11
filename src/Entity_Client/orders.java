@@ -10,7 +10,6 @@ package Entity_Client;
  */
 public class orders{
     
-    // Constructor lengkap
     public orders(akun data, tickets tiket, Double totalHarga, String Jenis) {
         this.data = data;
         this.tiket = tiket;
@@ -19,7 +18,7 @@ public class orders{
     public Double getTotalHarga() {
         return totalHarga;
     }
-    // Display method
+
     public void Display() {
         System.out.println("=== DATA PESANAN ===");
         System.out.println("Nama Wali     : " + data.getNama());

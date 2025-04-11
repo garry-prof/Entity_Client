@@ -3,7 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Entity_Client;
-
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io. IOException;
+import java.io. InputStreamReader;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.logging.Level;
+import java. util.logging.Logger;
+import java.io.PrintWriter;
+import java.util.List;
+import java.util.ArrayList;
 /**
  *
  * @author GARRY
@@ -26,22 +36,27 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelWelcome = new javax.swing.JLabel();
+        jButtonSubmit1 = new javax.swing.JButton();
         jTextFieldPassword = new javax.swing.JTextField();
         jTextFieldUsername = new javax.swing.JTextField();
         jButtonLogin = new javax.swing.JButton();
         jLabelLogin = new javax.swing.JLabel();
         jLabelPassword = new javax.swing.JLabel();
         jLabelUsername = new javax.swing.JLabel();
+        jLabelWelcome = new javax.swing.JLabel();
+        jButtonSubmit2 = new javax.swing.JButton();
+
+        jButtonSubmit1.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jButtonSubmit1.setText("←");
+        jButtonSubmit1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSubmit1ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabelWelcome.setBackground(new java.awt.Color(255, 102, 102));
-        jLabelWelcome.setFont(new java.awt.Font("Segoe Script", 1, 24)); // NOI18N
-        jLabelWelcome.setText("Welcome!!");
-        jLabelWelcome.setToolTipText("");
-
-        jButtonLogin.setText("OK");
+        jButtonLogin.setText("Login");
         jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLoginActionPerformed(evt);
@@ -63,54 +78,126 @@ public class Login extends javax.swing.JFrame {
         jLabelUsername.setText("Username:");
         jLabelUsername.setToolTipText("");
 
+        jLabelWelcome.setBackground(new java.awt.Color(255, 102, 102));
+        jLabelWelcome.setFont(new java.awt.Font("Segoe Script", 1, 24)); // NOI18N
+        jLabelWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelWelcome.setToolTipText("");
+
+        jButtonSubmit2.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jButtonSubmit2.setText("←");
+        jButtonSubmit2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSubmit2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelWelcome)
-                    .addComponent(jLabelLogin)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextFieldPassword)
-                        .addComponent(jTextFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(82, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonLogin)
-                .addGap(157, 157, 157))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButtonSubmit2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(45, 45, 45)
+                                        .addComponent(jTextFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addComponent(jLabelLogin))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(45, 45, 45)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonLogin)
+                                    .addComponent(jTextFieldPassword))))
+                        .addGap(0, 28, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonSubmit2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13))
+                .addGap(27, 27, 27))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        // TODO add your handling code here:
+        try {
+            String inputUser = jTextFieldUsername.getText();
+            String inputPwd = jTextFieldPassword.getText();
+
+            Socket socket = new Socket("localhost", 7000);
+            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+            String message = "LOGIN|" + inputUser + "|" + inputPwd;
+            out.println(message);
+
+            String response = in.readLine();
+            if (response.equals("Sukses")) {
+                List<tickets> daftarTiket = new ArrayList<>();
+                
+                while ((response = in.readLine()) != null) {
+                    if (response.startsWith("TICKET|")) {
+                        String[] data = response.split("\\|");
+                        String nama = data[1];
+                        String jenis = data[2];
+                        double harga = Double.parseDouble(data[3]);
+                        int jumlah = Integer.parseInt(data[4]);
+                        daftarTiket.add(new tickets(nama, jenis, harga, jumlah));
+                    } else if (response.equals("END")) {
+                        break;
+                    }   
+                }
+                new ListTicket(daftarTiket).setVisible(true);
+                this.dispose();
+            } else {
+                jLabelWelcome.setText("Login Gagal!");
+            }
+
+            socket.close();
+
+        } catch (Exception e) {
+            jLabelWelcome.setText("Error: " + e.getMessage());
+        }
     }//GEN-LAST:event_jButtonLoginActionPerformed
+
+    private void jButtonSubmit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSubmit1ActionPerformed
+        new WelcomePage().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonSubmit1ActionPerformed
+
+    private void jButtonSubmit2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSubmit2ActionPerformed
+        new WelcomePage().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonSubmit2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,6 +236,8 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLogin;
+    private javax.swing.JButton jButtonSubmit1;
+    private javax.swing.JButton jButtonSubmit2;
     private javax.swing.JLabel jLabelLogin;
     private javax.swing.JLabel jLabelPassword;
     private javax.swing.JLabel jLabelUsername;

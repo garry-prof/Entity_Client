@@ -3,12 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/GARRY/Documents/NetBeansProjects/ProjectUTS_Entity/src/projectuts_entity/TicketsDetails.java</file>
-            <file>file:/C:/Users/GARRY/Documents/NetBeansProjects/ProjectUTS_Entity/src/projectuts_entity/tickets.java</file>
-            <file>file:/C:/Users/GARRY/Documents/NetBeansProjects/ProjectUTS_Entity/src/projectuts_entity/ProjectUTS_Entity.java</file>
-            <file>file:/C:/Users/GARRY/Documents/NetBeansProjects/ProjectUTS_Entity/src/projectuts_entity/Register.java</file>
-            <file>file:/C:/Users/GARRY/Documents/NetBeansProjects/ProjectUTS_Entity/src/projectuts_entity/orders.java</file>
-            <file>file:/C:/Users/GARRY/Documents/NetBeansProjects/ProjectUTS_Entity/src/projectuts_entity/akun.java</file>
+            <file>file:/D:/timi/project/ProjectEntity/ProjectUTS_Entity/src/Entity_Client/WelcomePage.java</file>
+            <file>file:/D:/timi/project/ProjectEntity/ProjectUTS_Entity/src/Entity_Client/Entity_Client.java</file>
+            <file>file:/D:/timi/project/ProjectEntity/ProjectUTS_Entity/src/Entity_Client/SignUp.java</file>
+            <file>file:/D:/timi/project/ProjectEntity/ProjectUTS_Entity/src/Entity_Client/TicketDetails.java</file>
+            <file>file:/D:/timi/project/ProjectEntity/ProjectUTS_Entity/src/Entity_Client/Login.java</file>
+            <file>file:/D:/timi/project/ProjectEntity/ProjectUTS_Entity/src/Entity_Client/akun.java</file>
+            <file>file:/D:/timi/project/ProjectEntity/ProjectUTS_Entity/src/Entity_Client/ListTicket.java</file>
         </group>
     </open-files>
 </project-private>

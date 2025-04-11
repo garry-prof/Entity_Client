@@ -9,6 +9,11 @@ package Entity_Client;
  * @author GARRY
  */
 public class akun {
+    private String nama;
+    private String username;
+    private String email;
+    private int nomorTelp;
+    private String pwd;
 
     public akun(String nama, String username, String email, int nomorTelp, String pwd) {
         this.nama = nama;
@@ -17,20 +22,25 @@ public class akun {
         this.nomorTelp = nomorTelp;
         this.pwd = pwd;
     }
-    // Getter
+
     public String getNama() {
         return nama;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public int getNomorTelp() {
         return nomorTelp;
     }
-    public String getEmail(){
-        return email;
+
+    public String getPwd() {
+        return pwd;
     }
-    private String nama;
-    private String username;
-    private String email;
-    private int nomorTelp;
-    private String pwd;
 }
+

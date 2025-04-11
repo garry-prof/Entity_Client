@@ -3,6 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Entity_Client;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -13,9 +19,49 @@ public class ListTicket extends javax.swing.JFrame {
     /**
      * Creates new form LIstTicket
      */
-    public ListTicket() {
+    private List<tickets> tiketList = new ArrayList<>();
+    
+    public ListTicket(List<tickets> tiketList) {
         initComponents();
+        this.tiketList = tiketList;
+        loadComboBox();
+        jComboBoxKonser.addActionListener(e -> updateHarga());
+        jComboBoxJenisKursi.addActionListener(e -> updateHarga());
     }
+    
+    private void updateHarga() {
+    String konserDipilih = (String) jComboBoxKonser.getSelectedItem();
+    String jenisDipilih = (String) jComboBoxJenisKursi.getSelectedItem();
+
+    if (konserDipilih != null && jenisDipilih != null) {
+        for (tickets t : tiketList) {
+            if (t.getNamaKonser().equals(konserDipilih) && t.getJenis().equals(jenisDipilih)) {
+                jLabelHargaTiket.setText(String.valueOf(t.getHarga()));
+                return;
+            }
+        }
+    }
+}
+    
+    private void loadComboBox() {
+    Set<String> konserSet = new HashSet<>();
+    Set<String> jenisSet = new HashSet<>();
+
+    for (tickets t : tiketList) {
+        konserSet.add(t.getNamaKonser());
+        jenisSet.add(t.getJenis());
+    }
+
+    jComboBoxKonser.removeAllItems();
+    for (String konser : konserSet) {
+        jComboBoxKonser.addItem(konser);
+    }
+
+    jComboBoxJenisKursi.removeAllItems();
+    for (String jenis : jenisSet) {
+        jComboBoxJenisKursi.addItem(jenis);
+    }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,7 +72,7 @@ public class ListTicket extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButtonNext = new javax.swing.JButton();
+        jButtonCheckout = new javax.swing.JButton();
         jLabelListTicket = new javax.swing.JLabel();
         jLabelJenisKursi = new javax.swing.JLabel();
         jComboBoxJenisKursi = new javax.swing.JComboBox<>();
@@ -40,10 +86,10 @@ public class ListTicket extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButtonNext.setText("Next");
-        jButtonNext.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCheckout.setText("Checkout");
+        jButtonCheckout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonNextActionPerformed(evt);
+                jButtonCheckoutActionPerformed(evt);
             }
         });
 
@@ -78,7 +124,7 @@ public class ListTicket extends javax.swing.JFrame {
             }
         });
 
-        jLabelHargaTiket.setText("Harga");
+        jLabelHargaTiket.setText("-");
 
         jButtonDetailTiket.setText("Detail Tiket");
         jButtonDetailTiket.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +162,7 @@ public class ListTicket extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonDetailTiket)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonNext)))
+                        .addComponent(jButtonCheckout)))
                 .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
@@ -145,7 +191,7 @@ public class ListTicket extends javax.swing.JFrame {
                             .addComponent(jLabelJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonNext)
+                    .addComponent(jButtonCheckout)
                     .addComponent(jButtonDetailTiket))
                 .addGap(14, 14, 14))
         );
@@ -153,16 +199,63 @@ public class ListTicket extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonNextActionPerformed
+    private void jButtonCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCheckoutActionPerformed
+        String konserDipilih = (String) jComboBoxKonser.getSelectedItem();
+        String jenisDipilih = (String) jComboBoxJenisKursi.getSelectedItem();
+        String jumlahStr = jTextFieldJumlah.getText();
+
+        if (jumlahStr.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Jumlah tiket harus diisi.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        int jumlahBeli;
+        try {
+            jumlahBeli = Integer.parseInt(jumlahStr);
+            if (jumlahBeli <= 0) {
+                JOptionPane.showMessageDialog(this, "Jumlah tiket harus lebih dari 0.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Jumlah tiket harus berupa angka.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        for (tickets t : tiketList) {
+            if (t.getNamaKonser().equals(konserDipilih) && t.getJenis().equals(jenisDipilih)) {
+                if (jumlahBeli <= t.getJumlah()) {
+                    new Checkout(t, jumlahBeli).setVisible(true); 
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Jumlah tiket yang diminta melebihi stok tersedia (" + t.getJumlah() + ").", "Stok Tidak Cukup", JOptionPane.WARNING_MESSAGE);
+                }
+                return;
+            }
+        }
+    }//GEN-LAST:event_jButtonCheckoutActionPerformed
 
     private void jComboBoxKonserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxKonserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxKonserActionPerformed
 
     private void jButtonDetailTiketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDetailTiketActionPerformed
-        // TODO add your handling code here:
+        String konserDipilih = (String) jComboBoxKonser.getSelectedItem();
+        String jenisDipilih = (String) jComboBoxJenisKursi.getSelectedItem();
+        tickets tiketTerpilih = null;
+        for (tickets t : tiketList) {
+            if (t.getNamaKonser().equals(konserDipilih) && t.getJenis().equals(jenisDipilih)) {
+                tiketTerpilih = t;
+                break;
+            }
+        }
+        
+        String detail = "Nama Konser: " + tiketTerpilih.getNamaKonser() + "\n"
+                      + "Jenis Kursi: " + tiketTerpilih.getJenis() + "\n"
+                      + "Harga: Rp" + tiketTerpilih.getHarga() + "\n"
+                      + "Jumlah Tersedia: " + tiketTerpilih.getJumlah();
+        
+
+        new TicketDetails(detail).setVisible(true);  
     }//GEN-LAST:event_jButtonDetailTiketActionPerformed
 
     /**
@@ -196,14 +289,15 @@ public class ListTicket extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListTicket().setVisible(true);
+                List<tickets> daftarTiket = new ArrayList<>();
+                new ListTicket(daftarTiket).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonCheckout;
     private javax.swing.JButton jButtonDetailTiket;
-    private javax.swing.JButton jButtonNext;
     private javax.swing.JComboBox<String> jComboBoxJenisKursi;
     private javax.swing.JComboBox<String> jComboBoxKonser;
     private javax.swing.JLabel jLabelHarga;
