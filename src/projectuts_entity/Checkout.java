@@ -51,8 +51,15 @@ public class Checkout extends javax.swing.JFrame {
         jLabelTotalTiket.setText("Total");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setFocusCycleRoot(false);
+        setFocusable(false);
+        setFocusableWindowState(false);
+        setPreferredSize(new java.awt.Dimension(432, 370));
 
+        jButtonSubmit.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jButtonSubmit.setForeground(new java.awt.Color(255, 0, 204));
         jButtonSubmit.setText("Submit");
+        jButtonSubmit.setBorder(null);
         jButtonSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSubmitActionPerformed(evt);
@@ -60,45 +67,65 @@ public class Checkout extends javax.swing.JFrame {
         });
 
         jLabelFormCheckout.setBackground(new java.awt.Color(255, 102, 102));
-        jLabelFormCheckout.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabelFormCheckout.setText("FORM CHECKOUT");
+        jLabelFormCheckout.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
+        jLabelFormCheckout.setForeground(new java.awt.Color(255, 0, 204));
+        jLabelFormCheckout.setText("CHECKOUT");
         jLabelFormCheckout.setToolTipText("");
 
         jLabelEmail.setBackground(new java.awt.Color(255, 102, 102));
-        jLabelEmail.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelEmail.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jLabelEmail.setForeground(new java.awt.Color(0, 204, 0));
         jLabelEmail.setText("Alamat Email:");
         jLabelEmail.setToolTipText("");
 
         jLabelNomor.setBackground(new java.awt.Color(255, 102, 102));
-        jLabelNomor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelNomor.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jLabelNomor.setForeground(new java.awt.Color(0, 204, 0));
         jLabelNomor.setText("Nomor Telepon:");
         jLabelNomor.setToolTipText("");
 
         jLabelNama.setBackground(new java.awt.Color(255, 102, 102));
-        jLabelNama.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelNama.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jLabelNama.setForeground(new java.awt.Color(0, 204, 0));
         jLabelNama.setText("Nama Lengkap:");
         jLabelNama.setToolTipText("");
 
+        jTextFieldNama.setBorder(null);
+
+        jTextFieldNomor.setBorder(null);
+
+        jTextFieldEmail.setBorder(null);
+
         jLabelMetodePembayaran.setBackground(new java.awt.Color(255, 102, 102));
-        jLabelMetodePembayaran.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelMetodePembayaran.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jLabelMetodePembayaran.setForeground(new java.awt.Color(0, 204, 0));
         jLabelMetodePembayaran.setText("Metode Pembayaran:");
         jLabelMetodePembayaran.setToolTipText("");
 
+        jRadioButtonTransferBank.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jRadioButtonTransferBank.setForeground(new java.awt.Color(0, 204, 0));
         jRadioButtonTransferBank.setText("Transfer Bank");
+        jRadioButtonTransferBank.setBorder(null);
         jRadioButtonTransferBank.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonTransferBankActionPerformed(evt);
             }
         });
 
+        jRadioButtonVirtualAccount.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jRadioButtonVirtualAccount.setForeground(new java.awt.Color(0, 204, 0));
         jRadioButtonVirtualAccount.setText("Virtual Account");
+        jRadioButtonVirtualAccount.setBorder(null);
         jRadioButtonVirtualAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonVirtualAccountActionPerformed(evt);
             }
         });
 
+        jRadioButtonEmoney.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jRadioButtonEmoney.setForeground(new java.awt.Color(0, 204, 0));
         jRadioButtonEmoney.setText("E-Money");
+        jRadioButtonEmoney.setBorder(null);
         jRadioButtonEmoney.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonEmoneyActionPerformed(evt);
@@ -106,92 +133,87 @@ public class Checkout extends javax.swing.JFrame {
         });
 
         jLabelTotal1.setBackground(new java.awt.Color(255, 102, 102));
-        jLabelTotal1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelTotal1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jLabelTotal1.setForeground(new java.awt.Color(0, 204, 0));
         jLabelTotal1.setText("Total:");
         jLabelTotal1.setToolTipText("");
 
+        jLabelTotalTiket1.setForeground(new java.awt.Color(0, 204, 0));
         jLabelTotalTiket1.setText("Total");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabelNama)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldNama))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabelNomor)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldNomor))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelMetodePembayaran)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jRadioButtonTransferBank, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(32, 32, 32)
-                                        .addComponent(jRadioButtonVirtualAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(29, 29, 29)
-                                        .addComponent(jRadioButtonEmoney, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 30, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelEmail)
-                                    .addComponent(jLabelTotal1))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabelTotalTiket1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jTextFieldEmail))))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabelFormCheckout)
-                        .addGap(106, 106, 106))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonSubmit)
-                .addGap(20, 20, 20))
+                .addComponent(jButtonSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelMetodePembayaran)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jRadioButtonTransferBank, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24)
+                                .addComponent(jRadioButtonVirtualAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jRadioButtonEmoney, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabelNomor)
+                                        .addComponent(jLabelNama))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextFieldNomor, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                                        .addComponent(jTextFieldNama)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabelEmail)
+                                        .addComponent(jLabelTotal1))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabelTotalTiket1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(143, 143, 143)
+                        .addComponent(jLabelFormCheckout)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(46, Short.MAX_VALUE)
                 .addComponent(jLabelFormCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelNama, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelNomor, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldNomor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelTotal1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelTotalTiket1)))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelNama, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelNomor, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldNomor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelTotal1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelTotalTiket1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelMetodePembayaran, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButtonVirtualAccount)
                     .addComponent(jRadioButtonEmoney)
                     .addComponent(jRadioButtonTransferBank))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(jButtonSubmit)
-                .addGap(16, 16, 16))
+                .addGap(23, 23, 23)
+                .addComponent(jButtonSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
 
         pack();
