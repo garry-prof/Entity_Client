@@ -26,7 +26,6 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelWelcome = new javax.swing.JLabel();
         jTextFieldPassword = new javax.swing.JTextField();
         jTextFieldUsername = new javax.swing.JTextField();
         jButtonLogin = new javax.swing.JButton();
@@ -35,11 +34,6 @@ public class Login extends javax.swing.JFrame {
         jLabelUsername = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabelWelcome.setBackground(new java.awt.Color(255, 102, 102));
-        jLabelWelcome.setFont(new java.awt.Font("Segoe Script", 1, 24)); // NOI18N
-        jLabelWelcome.setText("Welcome!!");
-        jLabelWelcome.setToolTipText("");
 
         jButtonLogin.setText("OK");
         jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -74,7 +68,6 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jLabelUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelWelcome)
                     .addComponent(jLabelLogin)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jTextFieldPassword)
@@ -100,9 +93,7 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jLabelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13))
+                .addGap(59, 59, 59))
         );
 
         pack();
@@ -152,7 +143,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelLogin;
     private javax.swing.JLabel jLabelPassword;
     private javax.swing.JLabel jLabelUsername;
-    private javax.swing.JLabel jLabelWelcome;
     private javax.swing.JTextField jTextFieldPassword;
     private javax.swing.JTextField jTextFieldUsername;
     // End of variables declaration//GEN-END:variables
